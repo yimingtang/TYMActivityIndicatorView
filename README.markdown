@@ -1,14 +1,20 @@
 # TYMActivityIndicatorView
 
-A simple activity indicator view. It uses Core Animation to handle all the animation related stuffs. The APIs are much like those in `UIActivityIndicatorView`. Besides, TYMActivityIndicatorView offers a `setProgress:` method by invoking which you can change the progress (rotation angle). You may even be able to change the indicator appearance with images.
+A simple activity indicator view. It uses Core Animation to handle all the animation related stuffs.
 
 TYMActivityIndicatorView is tested on iOS 7 and requires ARC. Released under the MIT license.
 
-# Installation
+## Features
+
+* Rather simple APIs which are muck like those in `UIActivityIndicatorView`.
+* You're able to customize the appearance with images.
+* You may set the progress (rotation angle).
+
+## Installation
 
 Simply add the files in the `TYMActivityIndicatorView` directory to your project.
 
-# Example
+## Example
 
 ![Screenshot](https://raw2.github.com/krafttuc/TYMActivityIndicatorView/master/Screenshot.png)
 
