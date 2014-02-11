@@ -140,6 +140,7 @@
 - (void)setProgress:(CGFloat)progress
 {
     if (progress < 0.0f || progress > 1.0f) return;
+    if (fabsf(_progress - progress) < self.minProgressUnit) return;
     
     CGFloat fromValue = M_PI * 2 * _progress;
     CGFloat toValue = M_PI * 2 * progress;
@@ -158,6 +159,7 @@
     self.animating = NO;
     self.hidesWhenStopped = YES;
     self.fullRotationDuration = 1.0;
+    self.minProgressUnit = 0.01f;
     _progress = 0.0f;
     
     [self addSubview:self.backgroundImageView];
