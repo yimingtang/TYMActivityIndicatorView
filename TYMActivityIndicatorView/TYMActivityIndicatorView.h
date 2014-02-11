@@ -1,6 +1,6 @@
 //
 //  TYMActivityIndicatorView.h
-//  Example
+//  TYMActivityIndicatorView
 //
 //  Created by Yiming Tang on 14-2-9.
 //  Copyright (c) 2014 Yiming Tang. All rights reserved.
@@ -18,6 +18,9 @@ typedef NS_ENUM(NSInteger, TYMActivityIndicatorViewStyle) {
     TYMActivityIndicatorViewStyleNormal,
 };
 
+/**
+ A simple activity indicator view. You can customize it's appearance with images.
+ */
 @interface TYMActivityIndicatorView : UIView
 
 ///-----------------
