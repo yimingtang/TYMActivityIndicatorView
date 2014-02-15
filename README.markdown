@@ -2,20 +2,28 @@
 
 A simple activity indicator view. It uses Core Animation to handle all the animation related stuffs.
 
-TYMActivityIndicatorView is tested on iOS 7 and requires ARC. Released under the MIT license.
+TYMActivityIndicatorView is tested on iOS 7 and requires ARC.
+
+![Screenshot](https://raw2.github.com/krafttuc/TYMActivityIndicatorView/master/Screenshot.png)
+
 
 ## Features
 
-* Rather simple APIs which are muck like those in `UIActivityIndicatorView`.
-* You're able to customize the appearance with images.
+* Simple APIs which are much like those in the `UIActivityIndicatorView` class.
+* You're able to customize the appearance and behaviors through [appearnce proxy](http://nshipster.com/uiappearance/).
 * You may set the progress (rotation angle).
+
 
 ## Installation
 
 Simply add the files in the `TYMActivityIndicatorView` directory to your project.
 
+
 ## Example
 
-![Screenshot](https://raw2.github.com/krafttuc/TYMActivityIndicatorView/master/Screenshot.png)
+Open up the included Xcode project for an example app. See [TYMActivityIndicatorView.h](https://github.com/krafttuc/TYMActivityIndicatorView/blob/master/TYMActivityIndicatorView/TYMActivityIndicatorView.h) for full documentation.
 
-Open up the included Xcode project for an example app.
+
+## License
+
+Released under the MIT license.
