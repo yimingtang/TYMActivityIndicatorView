@@ -73,26 +73,17 @@
             break;
     }
     
-    self.backgroundImage = [UIImage imageNamed:backgroundImageName];
-    self.indicatorImage = [UIImage imageNamed:indicatorImageName];
+    _backgroundImage = [UIImage imageNamed:backgroundImageName];
+    _indicatorImage = [UIImage imageNamed:indicatorImageName];
+    self.backgroundImageView.image = _backgroundImage;
+    self.indicatorImageView.image = _indicatorImage;
+    [self setNeedsLayout];
 }
 
 
 - (BOOL)isAnimating
 {
     return self.animating;
-}
-
-
-#pragma mark - NSObject
-
-+ (void)initialize
-{
-    if (self == [TYMActivityIndicatorView class]) {
-        TYMActivityIndicatorView *appearance = [self appearance];
-        [appearance setFullRotationDuration:1.0f];
-        [appearance setMinProgressUnit:0.01f];
-    }
 }
 
 
@@ -120,14 +111,6 @@
 {
     if ((self = [self initWithFrame:CGRectZero])) {
         self.activityIndicatorViewStyle = style;
-        
-        // Initialize image according to appearance proxy.
-        TYMActivityIndicatorView *appearance = [[self class] appearance];
-        UIImage *backgroundImage = [appearance backgroundImage];
-        if (backgroundImage) self.backgroundImage = backgroundImage;
-        UIImage *indicatorImage = [appearance indicatorImage];
-        if (indicatorImage) self.indicatorImage = indicatorImage;
-        
         [self sizeToFit];
     }
     
@@ -201,8 +184,10 @@
 {
     self.userInteractionEnabled = NO;
     
-    self.animating = NO;
-    self.hidesWhenStopped = YES;
+    _animating = NO;
+    _hidesWhenStopped = YES;
+    _fullRotationDuration = 1.0f;
+    _minProgressUnit = 0.01f;
     _progress = 0.0f;
     
     [self addSubview:self.backgroundImageView];
