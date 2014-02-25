@@ -16,6 +16,12 @@ TYMActivityIndicatorView is tested on iOS 7 and requires ARC.
 
 ## Installation
 
+### CocoaPods
+
+If you are using [CocoaPods](http://cocoapods.org), then just add `TYMActivityIndicatorView` to you `Podfile`.
+
+### Manually
+
 Simply add the files in the `TYMActivityIndicatorView` directory to your project.
 
 
