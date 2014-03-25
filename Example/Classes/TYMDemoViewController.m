@@ -23,6 +23,11 @@
 
 #pragma mark - Accessors
 
+@synthesize activityIndicatorView1 = _activityIndicatorView1;
+@synthesize activityIndicatorView2 = _activityIndicatorView2;
+@synthesize activityIndicatorView3 = _activityIndicatorView3;
+@synthesize button = _button;
+@synthesize slider = _slider;
 
 - (UIActivityIndicatorView *)activityIndicatorView1
 {
@@ -81,6 +86,7 @@
 {
     [super viewDidLoad];
 
+    self.title = @"TYMActivityIndicatorView";
     self.view.backgroundColor = [UIColor colorWithWhite:0.95f alpha:1.0f];
 
     [self.view addSubview:self.activityIndicatorView1];
@@ -125,13 +131,13 @@
         [self.activityIndicatorView1 stopAnimating];
         [self.activityIndicatorView2 stopAnimating];
         [self.activityIndicatorView3 stopAnimating];
-        [_button setTitle:@"Start" forState:UIControlStateNormal];
+        [self.button setTitle:@"Start" forState:UIControlStateNormal];
         self.slider.enabled = YES;
     } else {
         [self.activityIndicatorView1 startAnimating];
         [self.activityIndicatorView2 startAnimating];
         [self.activityIndicatorView3 startAnimating];
-        [_button setTitle:@"Stop" forState:UIControlStateNormal];
+        [self.button setTitle:@"Stop" forState:UIControlStateNormal];
         self.slider.enabled = NO;
     }
     

@@ -20,6 +20,17 @@
 
 #pragma mark - Accessors
 
+@synthesize animating = _animating;
+@synthesize indicatorImage = _indicatorImage;
+@synthesize backgroundImage = _backgroundImage;
+@synthesize indicatorImageView = _indicatorImageView;
+@synthesize backgroundImageView = _backgroundImageView;
+@synthesize hidesWhenStopped = _hidesWhenStopped;
+@synthesize fullRotationDuration = _fullRotationDuration;
+@synthesize progress = _progress;
+@synthesize minProgressUnit = _minProgressUnit;
+@synthesize activityIndicatorViewStyle = _activityIndicatorViewStyle;
+
 - (UIImageView *)backgroundImageView
 {
     if (!_backgroundImageView) {
@@ -137,7 +148,7 @@
     CGSize backgroundImageSize = self.backgroundImageView.image.size;
     CGSize indicatorImageSize = self.indicatorImageView.image.size;
     
-    return CGSizeMake(MAX(backgroundImageSize.width, indicatorImageSize.width), MAX(backgroundImageSize.height, indicatorImageSize.height));
+    return CGSizeMake(fmaxf(backgroundImageSize.width, indicatorImageSize.width), fmaxf(backgroundImageSize.height, indicatorImageSize.height));
 }
 
 

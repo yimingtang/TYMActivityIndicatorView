@@ -7,5 +7,4 @@
 //
 
 @interface TYMDemoViewController : UIViewController
-
 @end
