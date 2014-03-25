@@ -20,14 +20,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		20FC15D118A7B9C900DD54B7 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		20FC15D118A7B9C900DD54B7 /* TYMActivityIndicatorView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TYMActivityIndicatorView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FC15D418A7B9C900DD54B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		20FC15D618A7B9C900DD54B7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		20FC15D818A7B9C900DD54B7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		20FC15DC18A7B9C900DD54B7 /* Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Example-Info.plist"; sourceTree = "<group>"; };
+		20FC15DC18A7B9C900DD54B7 /* TYMActivityIndicatorView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TYMActivityIndicatorView-Info.plist"; sourceTree = "<group>"; };
 		20FC15DE18A7B9C900DD54B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		20FC15E018A7B9C900DD54B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		20FC15E218A7B9C900DD54B7 /* Example-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Example-Prefix.pch"; sourceTree = "<group>"; };
+		20FC15E218A7B9C900DD54B7 /* TYMActivityIndicatorView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TYMActivityIndicatorView-Prefix.pch"; sourceTree = "<group>"; };
 		20FC15E318A7B9C900DD54B7 /* TYMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYMAppDelegate.h; sourceTree = "<group>"; };
 		20FC15E418A7B9C900DD54B7 /* TYMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYMAppDelegate.m; sourceTree = "<group>"; };
 		20FC15E618A7B9C900DD54B7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 		20FC15D218A7B9C900DD54B7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				20FC15D118A7B9C900DD54B7 /* Example.app */,
+				20FC15D118A7B9C900DD54B7 /* TYMActivityIndicatorView.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,10 +88,11 @@
 			isa = PBXGroup;
 			children = (
 				20FC15E618A7B9C900DD54B7 /* Images.xcassets */,
-				20FC15DC18A7B9C900DD54B7 /* Example-Info.plist */,
+				20FC15DC18A7B9C900DD54B7 /* TYMActivityIndicatorView-Info.plist */,
 				20FC15DD18A7B9C900DD54B7 /* InfoPlist.strings */,
 			);
-			path = Resources;
+			name = Resources;
+			path = Example/Resources;
 			sourceTree = "<group>";
 		};
 		20FC160518A7BC3B00DD54B7 /* Classes */ = {
@@ -102,16 +103,18 @@
 				20FC160F18A7D08700DD54B7 /* TYMDemoViewController.h */,
 				20FC161018A7D08700DD54B7 /* TYMDemoViewController.m */,
 			);
-			path = Classes;
+			name = Classes;
+			path = Example/Classes;
 			sourceTree = "<group>";
 		};
 		20FC160618A7BC5B00DD54B7 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
 				20FC15E018A7B9C900DD54B7 /* main.m */,
-				20FC15E218A7B9C900DD54B7 /* Example-Prefix.pch */,
+				20FC15E218A7B9C900DD54B7 /* TYMActivityIndicatorView-Prefix.pch */,
 			);
-			path = "Other Sources";
+			name = "Other Sources";
+			path = "Example/Other Sources";
 			sourceTree = "<group>";
 		};
 		20FC160B18A7BF3300DD54B7 /* TYMActivityIndicatorView */ = {
@@ -121,16 +124,15 @@
 				20FC160D18A7BF3300DD54B7 /* TYMActivityIndicatorView.m */,
 				20FC161D18A7E32500DD54B7 /* TYMActivityIndicatorView.bundle */,
 			);
-			name = TYMActivityIndicatorView;
-			path = ../TYMActivityIndicatorView;
+			path = TYMActivityIndicatorView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		20FC15D018A7B9C900DD54B7 /* Example */ = {
+		20FC15D018A7B9C900DD54B7 /* TYMActivityIndicatorView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 20FC15FD18A7B9C900DD54B7 /* Build configuration list for PBXNativeTarget "Example" */;
+			buildConfigurationList = 20FC15FD18A7B9C900DD54B7 /* Build configuration list for PBXNativeTarget "TYMActivityIndicatorView" */;
 			buildPhases = (
 				20FC15CD18A7B9C900DD54B7 /* Sources */,
 				20FC15CE18A7B9C900DD54B7 /* Frameworks */,
@@ -140,9 +142,9 @@
 			);
 			dependencies = (
 			);
-			name = Example;
+			name = TYMActivityIndicatorView;
 			productName = Example;
-			productReference = 20FC15D118A7B9C900DD54B7 /* Example.app */;
+			productReference = 20FC15D118A7B9C900DD54B7 /* TYMActivityIndicatorView.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -152,10 +154,10 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TYM;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Yiming Tang";
 			};
-			buildConfigurationList = 20FC15CC18A7B9C900DD54B7 /* Build configuration list for PBXProject "Example" */;
+			buildConfigurationList = 20FC15CC18A7B9C900DD54B7 /* Build configuration list for PBXProject "TYMActivityIndicatorView" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -167,7 +169,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				20FC15D018A7B9C900DD54B7 /* Example */,
+				20FC15D018A7B9C900DD54B7 /* TYMActivityIndicatorView */,
 			);
 		};
 /* End PBXProject section */
@@ -215,7 +217,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -255,7 +256,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -291,9 +291,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Other Sources/Example-Prefix.pch";
-				INFOPLIST_FILE = "Resources/Example-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Example/Other Sources/TYMActivityIndicatorView-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Resources/TYMActivityIndicatorView-Info.plist";
+				PRODUCT_NAME = TYMActivityIndicatorView;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -304,9 +304,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Other Sources/Example-Prefix.pch";
-				INFOPLIST_FILE = "Resources/Example-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Example/Other Sources/TYMActivityIndicatorView-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Resources/TYMActivityIndicatorView-Info.plist";
+				PRODUCT_NAME = TYMActivityIndicatorView;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -314,7 +314,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		20FC15CC18A7B9C900DD54B7 /* Build configuration list for PBXProject "Example" */ = {
+		20FC15CC18A7B9C900DD54B7 /* Build configuration list for PBXProject "TYMActivityIndicatorView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				20FC15FB18A7B9C900DD54B7 /* Debug */,
@@ -323,13 +323,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		20FC15FD18A7B9C900DD54B7 /* Build configuration list for PBXNativeTarget "Example" */ = {
+		20FC15FD18A7B9C900DD54B7 /* Build configuration list for PBXNativeTarget "TYMActivityIndicatorView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				20FC15FE18A7B9C900DD54B7 /* Debug */,
 				20FC15FF18A7B9C900DD54B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
