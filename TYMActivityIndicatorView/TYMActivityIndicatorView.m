@@ -2,17 +2,19 @@
 //  TYMActivityIndicatorView.m
 //  TYMActivityIndicatorView
 //
-//  Created by Yiming Tang on 14-2-9.
-//  Copyright (c) 2014 Yiming Tang. All rights reserved.
+//  Created by Yiming Tang on 2/9/14.
+//  Copyright (c) 2014 - 2015 Yiming Tang. All rights reserved.
 //
 
 #import "TYMActivityIndicatorView.h"
 
 @interface TYMActivityIndicatorView ()
 
-@property (nonatomic, assign) BOOL animating;
-@property (nonatomic, strong) UIImageView *indicatorImageView;
-@property (nonatomic, strong) UIImageView *backgroundImageView;
+@property (nonatomic) BOOL animating;
+@property (nonatomic) UIImageView *spinnerImageView;
+@property (nonatomic) UIImageView *backgroundImageView;
+@property (nonatomic) NSMutableDictionary *backgroundImageStorage;
+@property (nonatomic) NSMutableDictionary *spinnerImageStorage;
 
 @end
 
@@ -20,19 +22,19 @@
 
 #pragma mark - Accessors
 
+@synthesize activityIndicatorViewStyle = _activityIndicatorViewStyle;
 @synthesize animating = _animating;
-@synthesize indicatorImage = _indicatorImage;
-@synthesize backgroundImage = _backgroundImage;
-@synthesize indicatorImageView = _indicatorImageView;
 @synthesize backgroundImageView = _backgroundImageView;
+@synthesize backgroundImageStorage = _backgroundImageStorage;
+@synthesize spinnerImageView = _spinnerImageView;
+@synthesize spinnerImageStorage = _spinnerImageStorage;
+@synthesize clockwise = _clockwise;
 @synthesize hidesWhenStopped = _hidesWhenStopped;
 @synthesize fullRotationDuration = _fullRotationDuration;
-@synthesize progress = _progress;
 @synthesize minProgressUnit = _minProgressUnit;
-@synthesize activityIndicatorViewStyle = _activityIndicatorViewStyle;
+@synthesize progress = _progress;
 
-- (UIImageView *)backgroundImageView
-{
+- (UIImageView *)backgroundImageView {
     if (!_backgroundImageView) {
         _backgroundImageView = [[UIImageView alloc] initWithFrame:self.bounds];
         _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -41,112 +43,121 @@
 }
 
 
-- (UIImageView *)indicatorImageView
-{
-    if (!_indicatorImageView) {
-        _indicatorImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        _indicatorImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+- (UIImageView *)spinnerImageView {
+    if (!_spinnerImageView) {
+        _spinnerImageView = [[UIImageView alloc] initWithFrame:self.bounds];
+        _spinnerImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     }
-    return _indicatorImageView;
+    return _spinnerImageView;
 }
 
 
-- (void)setBackgroundImage:(UIImage *)backgroundImage
-{
-    _backgroundImage = backgroundImage;
-    self.backgroundImageView.image = _backgroundImage;
-    [self setNeedsLayout];
+- (NSMutableDictionary *)backgroundImageStorage {
+    if (!_backgroundImageStorage) {
+        _backgroundImageStorage = [NSMutableDictionary dictionary];
+    }
+    return _backgroundImageStorage;
 }
 
 
-- (void)setIndicatorImage:(UIImage *)indicatorImage
-{
-    _indicatorImage = indicatorImage;
-    self.indicatorImageView.image = _indicatorImage;
-    [self setNeedsLayout];
+- (NSMutableDictionary *)spinnerImageStorage {
+    if (!_spinnerImageStorage) {
+        _spinnerImageStorage = [NSMutableDictionary dictionary];
+    }
+    return _spinnerImageStorage;
 }
 
 
-- (void)setActivityIndicatorViewStyle:(TYMActivityIndicatorViewStyle)activityIndicatorViewStyle
-{
+- (void)setBackgroundImage:(UIImage *)backgroundImage forActivityIndicatorStyle:(TYMActivityIndicatorViewStyle)style {
+    [self.backgroundImageStorage setObject:backgroundImage forKey:@(style)];
+}
+
+
+- (UIImage *)backgroundImageForActivityIndicatorStyle:(TYMActivityIndicatorViewStyle)style {
+    UIImage *backgroundImage = [self.backgroundImageStorage objectForKey:@(style)];
+    if (!backgroundImage) {
+        backgroundImage = [[[self class] appearance] backgroundImageForActivityIndicatorStyle:style];
+    }
+    return backgroundImage;
+}
+
+
+- (void)setSpinnerImage:(UIImage *)spinnerImage forActivityIndicatorStyle:(TYMActivityIndicatorViewStyle)style {
+    [self.spinnerImageStorage setObject:spinnerImage forKey:@(style)];
+    
+}
+
+
+- (UIImage *)spinnerImageForActivityIndicatorStyle:(TYMActivityIndicatorViewStyle)style {
+    UIImage *spinnerImage =  [self.spinnerImageStorage objectForKey:@(style)];
+    if (!spinnerImage) {
+        spinnerImage = [[[self class] appearance] spinnerImageForActivityIndicatorStyle:style];
+    }
+    return spinnerImage;
+}
+
+
+- (void)setActivityIndicatorViewStyle:(TYMActivityIndicatorViewStyle)activityIndicatorViewStyle {
     _activityIndicatorViewStyle = activityIndicatorViewStyle;
-    
-    NSString *backgroundImageName;
-    NSString *indicatorImageName;
-    switch (_activityIndicatorViewStyle) {
-        case TYMActivityIndicatorViewStyleNormal:
-            backgroundImageName = @"TYMActivityIndicatorView.bundle/background";
-            indicatorImageName = @"TYMActivityIndicatorView.bundle/spinner";
-            break;
-        case TYMActivityIndicatorViewStyleLarge:
-            backgroundImageName = @"TYMActivityIndicatorView.bundle/background-large";
-            indicatorImageName = @"TYMActivityIndicatorView.bundle/spinner-large";
-            break;
-    }
-    
-    _backgroundImage = [UIImage imageNamed:backgroundImageName];
-    _indicatorImage = [UIImage imageNamed:indicatorImageName];
-    self.backgroundImageView.image = _backgroundImage;
-    self.indicatorImageView.image = _indicatorImage;
-    [self setNeedsLayout];
+    self.backgroundImageView.image = [self backgroundImageForActivityIndicatorStyle:activityIndicatorViewStyle];
+    self.spinnerImageView.image = [self spinnerImageForActivityIndicatorStyle:activityIndicatorViewStyle];
+    [self sizeToFit];
 }
 
 
-- (BOOL)isAnimating
-{
+- (BOOL)isAnimating {
     return self.animating;
+}
+
+
+#pragma mark - Class Methods
+
++ (void)initialize {
+    if (self == [TYMActivityIndicatorView class]) {
+        TYMActivityIndicatorView *appearance = [TYMActivityIndicatorView appearance];
+        [appearance setClockwise:YES];
+        [appearance setHidesWhenStopped:NO];
+        [appearance setFullRotationDuration:1.0];
+        [appearance setMinProgressUnit:0.01f];
+        [appearance setBackgroundImage:[UIImage imageNamed:@"TYMActivityIndicatorView.bundle/background-normal"] forActivityIndicatorStyle:TYMActivityIndicatorViewStyleNormal];
+        [appearance setSpinnerImage:[UIImage imageNamed:@"TYMActivityIndicatorView.bundle/spinner-normal"] forActivityIndicatorStyle:TYMActivityIndicatorViewStyleNormal];
+        [appearance setBackgroundImage:[UIImage imageNamed:@"TYMActivityIndicatorView.bundle/background-small"] forActivityIndicatorStyle:TYMActivityIndicatorViewStyleSmall];
+        [appearance setSpinnerImage:[UIImage imageNamed:@"TYMActivityIndicatorView.bundle/spinner-small"] forActivityIndicatorStyle:TYMActivityIndicatorViewStyleSmall];
+        [appearance setBackgroundImage:[UIImage imageNamed:@"TYMActivityIndicatorView.bundle/background-large"] forActivityIndicatorStyle:TYMActivityIndicatorViewStyleLarge];
+        [appearance setSpinnerImage:[UIImage imageNamed:@"TYMActivityIndicatorView.bundle/spinner-large"] forActivityIndicatorStyle:TYMActivityIndicatorViewStyleLarge];
+    }
 }
 
 
 #pragma mark - UIView
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
+- (id)initWithCoder:(NSCoder *)aDecoder {
     if ((self = [super initWithCoder:aDecoder])) {
-        [self _initialize];
+        [self initialize];
     }
     return self;
 }
 
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-        [self _initialize];
+        [self initialize];
     }
     return self;
 }
 
 
-- (id)initWithActivityIndicatorStyle:(TYMActivityIndicatorViewStyle)style
-{
+- (id)initWithActivityIndicatorStyle:(TYMActivityIndicatorViewStyle)style {
     if ((self = [self initWithFrame:CGRectZero])) {
         self.activityIndicatorViewStyle = style;
-        [self sizeToFit];
     }
-    
     return self;
 }
 
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    CGSize size = self.bounds.size;
+- (CGSize)sizeThatFits:(CGSize)size {
     CGSize backgroundImageSize = self.backgroundImageView.image.size;
-    CGSize indicatorImageSize = self.indicatorImageView.image.size;
-    
-    // Center
-    self.backgroundImageView.frame = CGRectMake(roundf((size.width - backgroundImageSize.width) / 2.0f), roundf((size.height - backgroundImageSize.height) / 2.0f), backgroundImageSize.width, backgroundImageSize.height);
-    self.indicatorImageView.frame = CGRectMake(roundf((size.width - indicatorImageSize.width) / 2.0f), roundf((size.height - indicatorImageSize.height) / 2.0f), indicatorImageSize.width, indicatorImageSize.height);
-}
-
-
-- (CGSize)sizeThatFits:(CGSize)size
-{
-    CGSize backgroundImageSize = self.backgroundImageView.image.size;
-    CGSize indicatorImageSize = self.indicatorImageView.image.size;
+    CGSize indicatorImageSize = self.spinnerImageView.image.size;
     
     return CGSizeMake(fmaxf(backgroundImageSize.width, indicatorImageSize.width), fmaxf(backgroundImageSize.height, indicatorImageSize.height));
 }
@@ -154,36 +165,40 @@
 
 #pragma mark - Public
 
-- (void)startAnimating
-{
+- (void)startAnimating {
     if (self.animating) return;
     
     self.animating = YES;
     self.hidden = NO;
-    [self _rotateImageViewFrom:0.0f to:M_PI*2 duration:self.fullRotationDuration repeatCount:HUGE_VALF];
+    CGFloat toValue = self.clockwise ? M_PI * 2 : -M_PI * 2;
+    
+    [self rotateView:self.spinnerImageView from:0.0 to:toValue duration:self.fullRotationDuration repeatCount:HUGE_VALF forKey:@"rotation" removeAnimationOnCompletion:NO];
 }
 
 
-- (void)stopAnimating
-{
+- (void)stopAnimating {
     if (!self.animating) return;
     
     self.animating = NO;
-    [self.indicatorImageView.layer removeAllAnimations];
+    [self.spinnerImageView.layer removeAnimationForKey:@"rotation"];
     if (self.hidesWhenStopped) {
         self.hidden = YES;
     }
 }
 
 
-- (void)setProgress:(CGFloat)progress
-{
-    if (progress < 0.0f || progress > 1.0f) return;
+- (void)setProgress:(CGFloat)progress {
+    if (progress < 0.0 || progress > 1.0) return;
     if (fabsf(_progress - progress) < self.minProgressUnit) return;
     
     CGFloat fromValue = M_PI * 2 * _progress;
     CGFloat toValue = M_PI * 2 * progress;
-    [self _rotateImageViewFrom:fromValue to:toValue duration:0.15f repeatCount:0];
+    if (!self.clockwise) {
+        fromValue = -fromValue;
+        toValue = -toValue;
+    }
+    
+    [self rotateView:self.spinnerImageView from:fromValue to:toValue duration:0.15f repeatCount:0 forKey:@"rotation" removeAnimationOnCompletion:NO];
     
     _progress = progress;
 }
@@ -191,32 +206,23 @@
 
 #pragma mark - Private
 
-- (void)_initialize
-{
+- (void)initialize {
     self.userInteractionEnabled = NO;
-    
-    _animating = NO;
-    _hidesWhenStopped = YES;
-    _fullRotationDuration = 1.0f;
-    _minProgressUnit = 0.01f;
-    _progress = 0.0f;
-    
     [self addSubview:self.backgroundImageView];
-    [self addSubview:self.indicatorImageView];
+    [self addSubview:self.spinnerImageView];
 }
 
 
-- (void)_rotateImageViewFrom:(CGFloat)fromValue to:(CGFloat)toValue duration:(CFTimeInterval)duration repeatCount:(CGFloat)repeatCount
-{
-    CABasicAnimation *rotationAnimation;
-    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    rotationAnimation.fromValue = [NSNumber numberWithFloat:fromValue];
-    rotationAnimation.toValue = [NSNumber numberWithFloat:toValue];
+- (void)rotateView:(UIView *)view from:(CGFloat)fromValue to:(CGFloat)toValue duration:(CGFloat)duration repeatCount:(CGFloat)repeatCount forKey:(NSString *)key removeAnimationOnCompletion:(BOOL)removeOnCompletion {
+    CABasicAnimation *rotationAnimation = [CABasicAnimation animation];
+    rotationAnimation.keyPath = @"transform.rotation.z";
+    rotationAnimation.fromValue = @(fromValue);
+    rotationAnimation.toValue = @(toValue);
     rotationAnimation.duration = duration;
-    rotationAnimation.RepeatCount = repeatCount;
-    rotationAnimation.removedOnCompletion = NO;
+    rotationAnimation.repeatCount = repeatCount;
+    rotationAnimation.removedOnCompletion = removeOnCompletion;
     rotationAnimation.fillMode = kCAFillModeForwards;
-    [self.indicatorImageView.layer addAnimation:rotationAnimation forKey:@"rotation"];
+    [view.layer addAnimation:rotationAnimation forKey:key];
 }
 
 @end

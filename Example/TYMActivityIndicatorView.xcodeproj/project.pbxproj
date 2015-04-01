@@ -14,9 +14,8 @@
 		20FC15E118A7B9C900DD54B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FC15E018A7B9C900DD54B7 /* main.m */; };
 		20FC15E518A7B9C900DD54B7 /* TYMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FC15E418A7B9C900DD54B7 /* TYMAppDelegate.m */; };
 		20FC15E718A7B9C900DD54B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20FC15E618A7B9C900DD54B7 /* Images.xcassets */; };
-		20FC160E18A7BF3300DD54B7 /* TYMActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FC160D18A7BF3300DD54B7 /* TYMActivityIndicatorView.m */; };
 		20FC161118A7D08700DD54B7 /* TYMDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FC161018A7D08700DD54B7 /* TYMDemoViewController.m */; };
-		20FC161E18A7E32500DD54B7 /* TYMActivityIndicatorView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20FC161D18A7E32500DD54B7 /* TYMActivityIndicatorView.bundle */; };
+		98B7F4D9C95010C6D8063115 /* libPods-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DED76A96C30ED621DFE206D /* libPods-Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,11 +31,11 @@
 		20FC15E418A7B9C900DD54B7 /* TYMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYMAppDelegate.m; sourceTree = "<group>"; };
 		20FC15E618A7B9C900DD54B7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		20FC15ED18A7B9C900DD54B7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		20FC160C18A7BF3300DD54B7 /* TYMActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYMActivityIndicatorView.h; sourceTree = "<group>"; };
-		20FC160D18A7BF3300DD54B7 /* TYMActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYMActivityIndicatorView.m; sourceTree = "<group>"; };
 		20FC160F18A7D08700DD54B7 /* TYMDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYMDemoViewController.h; sourceTree = "<group>"; };
 		20FC161018A7D08700DD54B7 /* TYMDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYMDemoViewController.m; sourceTree = "<group>"; };
-		20FC161D18A7E32500DD54B7 /* TYMActivityIndicatorView.bundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TYMActivityIndicatorView.bundle; sourceTree = "<group>"; };
+		2DED76A96C30ED621DFE206D /* libPods-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C3C4022A0A8EF695D4834D8 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		8EE4794B6699FACB0C9ABC79 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +46,7 @@
 				20FC15D718A7B9C900DD54B7 /* CoreGraphics.framework in Frameworks */,
 				20FC15D918A7B9C900DD54B7 /* UIKit.framework in Frameworks */,
 				20FC15D518A7B9C900DD54B7 /* Foundation.framework in Frameworks */,
+				98B7F4D9C95010C6D8063115 /* libPods-Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +56,12 @@
 		20FC15C818A7B9C900DD54B7 = {
 			isa = PBXGroup;
 			children = (
-				20FC160B18A7BF3300DD54B7 /* TYMActivityIndicatorView */,
 				20FC160518A7BC3B00DD54B7 /* Classes */,
 				20FC160418A7BB7100DD54B7 /* Resources */,
 				20FC160618A7BC5B00DD54B7 /* Other Sources */,
 				20FC15D318A7B9C900DD54B7 /* Frameworks */,
 				20FC15D218A7B9C900DD54B7 /* Products */,
+				76F86E823F78F62F8DA0DA2E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +80,7 @@
 				20FC15D618A7B9C900DD54B7 /* CoreGraphics.framework */,
 				20FC15D818A7B9C900DD54B7 /* UIKit.framework */,
 				20FC15ED18A7B9C900DD54B7 /* XCTest.framework */,
+				2DED76A96C30ED621DFE206D /* libPods-Example.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -91,8 +92,7 @@
 				20FC15DC18A7B9C900DD54B7 /* TYMActivityIndicatorView-Info.plist */,
 				20FC15DD18A7B9C900DD54B7 /* InfoPlist.strings */,
 			);
-			name = Resources;
-			path = Example/Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		20FC160518A7BC3B00DD54B7 /* Classes */ = {
@@ -103,8 +103,7 @@
 				20FC160F18A7D08700DD54B7 /* TYMDemoViewController.h */,
 				20FC161018A7D08700DD54B7 /* TYMDemoViewController.m */,
 			);
-			name = Classes;
-			path = Example/Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		20FC160618A7BC5B00DD54B7 /* Other Sources */ = {
@@ -113,36 +112,36 @@
 				20FC15E018A7B9C900DD54B7 /* main.m */,
 				20FC15E218A7B9C900DD54B7 /* TYMActivityIndicatorView-Prefix.pch */,
 			);
-			name = "Other Sources";
-			path = "Example/Other Sources";
+			path = "Other Sources";
 			sourceTree = "<group>";
 		};
-		20FC160B18A7BF3300DD54B7 /* TYMActivityIndicatorView */ = {
+		76F86E823F78F62F8DA0DA2E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				20FC160C18A7BF3300DD54B7 /* TYMActivityIndicatorView.h */,
-				20FC160D18A7BF3300DD54B7 /* TYMActivityIndicatorView.m */,
-				20FC161D18A7E32500DD54B7 /* TYMActivityIndicatorView.bundle */,
+				3C3C4022A0A8EF695D4834D8 /* Pods-Example.debug.xcconfig */,
+				8EE4794B6699FACB0C9ABC79 /* Pods-Example.release.xcconfig */,
 			);
-			path = TYMActivityIndicatorView;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		20FC15D018A7B9C900DD54B7 /* TYMActivityIndicatorView */ = {
+		20FC15D018A7B9C900DD54B7 /* Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 20FC15FD18A7B9C900DD54B7 /* Build configuration list for PBXNativeTarget "TYMActivityIndicatorView" */;
+			buildConfigurationList = 20FC15FD18A7B9C900DD54B7 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
+				BAA9412DD5CA6F3C7533226A /* Check Pods Manifest.lock */,
 				20FC15CD18A7B9C900DD54B7 /* Sources */,
 				20FC15CE18A7B9C900DD54B7 /* Frameworks */,
 				20FC15CF18A7B9C900DD54B7 /* Resources */,
+				1A81FCBBA878D46D2428AAF9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = TYMActivityIndicatorView;
+			name = Example;
 			productName = Example;
 			productReference = 20FC15D118A7B9C900DD54B7 /* TYMActivityIndicatorView.app */;
 			productType = "com.apple.product-type.application";
@@ -169,7 +168,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				20FC15D018A7B9C900DD54B7 /* TYMActivityIndicatorView */,
+				20FC15D018A7B9C900DD54B7 /* Example */,
 			);
 		};
 /* End PBXProject section */
@@ -179,7 +178,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20FC161E18A7E32500DD54B7 /* TYMActivityIndicatorView.bundle in Resources */,
 				20FC15DF18A7B9C900DD54B7 /* InfoPlist.strings in Resources */,
 				20FC15E718A7B9C900DD54B7 /* Images.xcassets in Resources */,
 			);
@@ -187,13 +185,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A81FCBBA878D46D2428AAF9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAA9412DD5CA6F3C7533226A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		20FC15CD18A7B9C900DD54B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				20FC161118A7D08700DD54B7 /* TYMDemoViewController.m in Sources */,
-				20FC160E18A7BF3300DD54B7 /* TYMActivityIndicatorView.m in Sources */,
 				20FC15E118A7B9C900DD54B7 /* main.m in Sources */,
 				20FC15E518A7B9C900DD54B7 /* TYMAppDelegate.m in Sources */,
 			);
@@ -287,26 +317,30 @@
 		};
 		20FC15FE18A7B9C900DD54B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C3C4022A0A8EF695D4834D8 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Example/Other Sources/TYMActivityIndicatorView-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Example/Resources/TYMActivityIndicatorView-Info.plist";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Other Sources/TYMActivityIndicatorView-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/TYMActivityIndicatorView-Info.plist";
 				PRODUCT_NAME = TYMActivityIndicatorView;
+				WARNING_CFLAGS = "-Weverything";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		20FC15FF18A7B9C900DD54B7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EE4794B6699FACB0C9ABC79 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Example/Other Sources/TYMActivityIndicatorView-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Example/Resources/TYMActivityIndicatorView-Info.plist";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Other Sources/TYMActivityIndicatorView-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/TYMActivityIndicatorView-Info.plist";
 				PRODUCT_NAME = TYMActivityIndicatorView;
+				WARNING_CFLAGS = "-Weverything";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -323,7 +357,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		20FC15FD18A7B9C900DD54B7 /* Build configuration list for PBXNativeTarget "TYMActivityIndicatorView" */ = {
+		20FC15FD18A7B9C900DD54B7 /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				20FC15FE18A7B9C900DD54B7 /* Debug */,

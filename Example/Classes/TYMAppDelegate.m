@@ -2,8 +2,8 @@
 //  TYMAppDelegate.m
 //  Example
 //
-//  Created by Yiming Tang on 14-2-9.
-//  Copyright (c) 2014 Yiming Tang. All rights reserved.
+//  Created by Yiming Tang on 2/9/14.
+//  Copyright (c) 2014 - 2015 Yiming Tang. All rights reserved.
 //
 
 #import "TYMAppDelegate.h"
@@ -13,13 +13,10 @@
 
 @synthesize window = _window;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    TYMDemoViewController *demoViewController = [[TYMDemoViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:demoViewController];
-    self.window.rootViewController = navigationController;
     self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[TYMDemoViewController alloc] init];;
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -2,24 +2,21 @@
 //  TYMActivityIndicatorView.h
 //  TYMActivityIndicatorView
 //
-//  Created by Yiming Tang on 14-2-9.
-//  Copyright (c) 2014 Yiming Tang. All rights reserved.
+//  Created by Yiming Tang on 2/9/14.
+//  Copyright (c) 2014 - 2015 Yiming Tang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-/**
- Activity indicator type.
- */
 typedef NS_ENUM(NSInteger, TYMActivityIndicatorViewStyle) {
-    /** A large activity indicator view. About 157 * 157 in size. */
-    TYMActivityIndicatorViewStyleLarge,
-    /** A normal activity indicator view. About 37 * 37 in size */
+    TYMActivityIndicatorViewStyleSmall,
     TYMActivityIndicatorViewStyleNormal,
+    TYMActivityIndicatorViewStyleLarge,
 };
 
+
 /**
- A simple activity indicator view. You can customize it's appearance with images.
+ TYMActivityIndicatorView is a simple activity indicator view that you can customize it's appearance with images.
  */
 @interface TYMActivityIndicatorView : UIView
 
@@ -28,51 +25,73 @@ typedef NS_ENUM(NSInteger, TYMActivityIndicatorViewStyle) {
 ///-----------------
 
 /**
- The background image.
- 
- Should use the same size as the indicator view's for performance issue.
- */
-@property (nonatomic, strong) UIImage *backgroundImage UI_APPEARANCE_SELECTOR;
+ The activity indicator view style. Default is `TYMActivityIndicatorViewStyleNormal`.
+*/
+@property (nonatomic) TYMActivityIndicatorViewStyle activityIndicatorViewStyle;
 
 /**
- The indicator image which may be applied with a rotarion animation.
- 
- Usually, it's a circular progress bar. Should use the same size as the indicator view's.
+ It determines whether the receiver will be hidden when the animation was stopped.
+ Default is `YES`. It calls `-setHidden` when animating gets set to NO.
  */
-@property (nonatomic, strong) UIImage *indicatorImage UI_APPEARANCE_SELECTOR;
+@property (nonatomic) BOOL hidesWhenStopped UI_APPEARANCE_SELECTOR;
 
 /**
- It determines whether the view will be hidden when the animation was stopped.
- 
- The view sets its `hidden` property to accomplish it.
+ Default value is `YES`.
  */
-@property (nonatomic, assign) BOOL hidesWhenStopped;
+@property (nonatomic) BOOL clockwise UI_APPEARANCE_SELECTOR;
 
 /**
- The duration time it takes the indicator to finish a 360-degree clockwise rotation.
+ The duration time it takes the indicator to finish a 360-degree rotation.
  */
-@property (nonatomic, assign) CFTimeInterval fullRotationDuration UI_APPEARANCE_SELECTOR;
+@property (nonatomic) CGFloat fullRotationDuration UI_APPEARANCE_SELECTOR;
 
 /**
- The overall progress of the indicator. The acceptable value is `0.0f` to `1.0f`.
- 
- The default value is 0.
- 
- @warning For performance issue, you'd better control your invoking frequency during a period of time.
- */
-@property (nonatomic, assign) CGFloat progress;
-
-/**
- The minimal progress unit.
+ The minimum progress unit.
  
  The indicator will only be rotated when the delta value of the progress is larger than the unit value. The default value is `0.01f`.
  */
-@property (nonatomic, assign) CGFloat minProgressUnit UI_APPEARANCE_SELECTOR;
+@property (nonatomic) CGFloat minProgressUnit UI_APPEARANCE_SELECTOR;
 
 /**
- The activity indicator view style. Default is `TYMActivityIndicatorViewStyleNormal`.
+ The overall progress of the indicator. The acceptable value is `0.0f` to `1.0f`. The default value is 0.
+ 
+ @warning For performance issue, you'd better control your invoking frequency during a period of time.
  */
-@property (nonatomic, assign) TYMActivityIndicatorViewStyle activityIndicatorViewStyle;
+@property (nonatomic) CGFloat progress;
+
+/**
+ Set background images for different styles.
+ 
+ @param backgroundImage The background image.
+ @param style An indicator style.
+ */
+- (void)setBackgroundImage:(UIImage *)backgroundImage forActivityIndicatorStyle:(TYMActivityIndicatorViewStyle)style UI_APPEARANCE_SELECTOR;
+
+/**
+ Get the background image object for specific style.
+ 
+ @param style The indicator style.
+ 
+ @return The background image for the style.
+ */
+- (UIImage *)backgroundImageForActivityIndicatorStyle:(TYMActivityIndicatorViewStyle)style UI_APPEARANCE_SELECTOR;
+
+/**
+ Set spinner images for different styles.
+ 
+ @param spinnerImage The spinner image.
+ @param style An indicator style.
+ */
+- (void)setSpinnerImage:(UIImage *)spinnerImage forActivityIndicatorStyle:(TYMActivityIndicatorViewStyle)style UI_APPEARANCE_SELECTOR;
+
+/**
+ Get the spinner image for a specific style.
+ 
+ @param style The indicator style.
+ 
+ @return The spinner image for the style.
+ */
+- (UIImage *)spinnerImageForActivityIndicatorStyle:(TYMActivityIndicatorViewStyle)style UI_APPEARANCE_SELECTOR;
 
 
 ///-------------------
@@ -81,8 +100,10 @@ typedef NS_ENUM(NSInteger, TYMActivityIndicatorViewStyle) {
 
 /**
  Initialize a indicator view with built-in sizes and resources according to the specific style.
+ 
+ @param style The initial activity indicator style.
  */
-- (id)initWithActivityIndicatorStyle:(TYMActivityIndicatorViewStyle)style;
+- (instancetype)initWithActivityIndicatorStyle:(TYMActivityIndicatorViewStyle)style;
 
 
 ///-----------------------------
@@ -90,7 +111,7 @@ typedef NS_ENUM(NSInteger, TYMActivityIndicatorViewStyle) {
 ///-----------------------------
 
 /**
- Start animating. 360-degree clockwise rotation. Repeated forever.
+ Start animating. 360-degree rotation. Repeated forever.
  */
 - (void)startAnimating;
 
