@@ -1,5 +1,5 @@
 platform :ios, '7.0'
 
-target 'Example' do
+target 'TYMActivityIndicatorView' do
   pod 'TYMActivityIndicatorView', :path => '../'
 end
