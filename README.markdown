@@ -1,5 +1,10 @@
 # TYMActivityIndicatorView
 
+[![CI Status](http://img.shields.io/travis/yimingtang/TYMActivityIndicatorView.svg?style=flat)](https://travis-ci.org/yimingtang/TYMActivityIndicatorView)
+[![Version](https://img.shields.io/cocoapods/v/TYMActivityIndicatorView.svg?style=flat)](http://cocoapods.org/pods/TYMActivityIndicatorView)
+[![License](https://img.shields.io/cocoapods/l/TYMActivityIndicatorView.svg?style=flat)](http://cocoapods.org/pods/TYMActivityIndicatorView)
+[![Platform](https://img.shields.io/cocoapods/p/TYMActivityIndicatorView.svg?style=flat)](http://cocoapods.org/pods/TYMActivityIndicatorView)
+
 A simple activity indicator view. It uses Core Animation to handle all the animation related stuff.
 
 TYMActivityIndicatorView is tested on iOS 5.0+ and requires ARC.

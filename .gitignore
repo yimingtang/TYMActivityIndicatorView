@@ -12,7 +12,6 @@ build/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata
-*.xcworkspace
 *.xccheckout
 profile
 *.moved-aside
@@ -20,5 +19,7 @@ DerivedData
 *.hmap
 *.ipa
 
-# CocoaPods
+# Bundler
+.bundle
+
 Pods

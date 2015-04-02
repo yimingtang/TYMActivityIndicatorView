@@ -127,9 +127,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		20FC15D018A7B9C900DD54B7 /* Example */ = {
+		20FC15D018A7B9C900DD54B7 /* TYMActivityIndicatorView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 20FC15FD18A7B9C900DD54B7 /* Build configuration list for PBXNativeTarget "Example" */;
+			buildConfigurationList = 20FC15FD18A7B9C900DD54B7 /* Build configuration list for PBXNativeTarget "TYMActivityIndicatorView" */;
 			buildPhases = (
 				BAA9412DD5CA6F3C7533226A /* Check Pods Manifest.lock */,
 				20FC15CD18A7B9C900DD54B7 /* Sources */,
@@ -141,7 +141,7 @@
 			);
 			dependencies = (
 			);
-			name = Example;
+			name = TYMActivityIndicatorView;
 			productName = Example;
 			productReference = 20FC15D118A7B9C900DD54B7 /* TYMActivityIndicatorView.app */;
 			productType = "com.apple.product-type.application";
@@ -168,7 +168,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				20FC15D018A7B9C900DD54B7 /* Example */,
+				20FC15D018A7B9C900DD54B7 /* TYMActivityIndicatorView */,
 			);
 		};
 /* End PBXProject section */
@@ -357,7 +357,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		20FC15FD18A7B9C900DD54B7 /* Build configuration list for PBXNativeTarget "Example" */ = {
+		20FC15FD18A7B9C900DD54B7 /* Build configuration list for PBXNativeTarget "TYMActivityIndicatorView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				20FC15FE18A7B9C900DD54B7 /* Debug */,
