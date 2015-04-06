@@ -1,5 +1,5 @@
 PODS:
-  - TYMActivityIndicatorView (0.3.0)
+  - TYMActivityIndicatorView (0.3.1)
 
 DEPENDENCIES:
   - TYMActivityIndicatorView (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  TYMActivityIndicatorView: 458dbe0a6280e77a7b1a95dc39a8ccd683583959
+  TYMActivityIndicatorView: 4a4961b382b9f6e161186c9329272c98b2b11e6f
 
 COCOAPODS: 0.36.3
