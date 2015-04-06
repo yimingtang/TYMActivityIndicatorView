@@ -37,7 +37,7 @@
 - (UIImageView *)backgroundImageView {
     if (!_backgroundImageView) {
         _backgroundImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        _backgroundImageView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _backgroundImageView;
 }
@@ -46,7 +46,7 @@
 - (UIImageView *)spinnerImageView {
     if (!_spinnerImageView) {
         _spinnerImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        _spinnerImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        _spinnerImageView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _spinnerImageView;
 }
@@ -210,6 +210,20 @@
     self.userInteractionEnabled = NO;
     [self addSubview:self.backgroundImageView];
     [self addSubview:self.spinnerImageView];
+    
+    [self setupViewConstraints];
+}
+
+
+- (void)setupViewConstraints {
+    NSDictionary *views = @{
+        @"backgroundImageView": self.backgroundImageView,
+        @"spinnerImageView": self.spinnerImageView
+    };
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[backgroundImageView]|" options:kNilOptions metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[backgroundImageView]|" options:kNilOptions metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[spinnerImageView]|" options:kNilOptions metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[spinnerImageView]|" options:kNilOptions metrics:nil views:views]];
 }
 
 

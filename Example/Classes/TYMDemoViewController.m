@@ -45,6 +45,7 @@
     if (!_systemActivityIndicatorView) {
         _systemActivityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [_systemActivityIndicatorView stopAnimating];
+        _systemActivityIndicatorView.translatesAutoresizingMaskIntoConstraints = NO;
         _systemActivityIndicatorView.hidesWhenStopped = NO;
     }
     return _systemActivityIndicatorView;
@@ -54,6 +55,7 @@
 - (TYMActivityIndicatorView *)smallActivityIndicatorView {
     if (!_smallActivityIndicatorView) {
         _smallActivityIndicatorView = [[TYMActivityIndicatorView alloc] initWithActivityIndicatorStyle:TYMActivityIndicatorViewStyleSmall];
+        _smallActivityIndicatorView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _smallActivityIndicatorView;
 }
@@ -62,6 +64,7 @@
 - (TYMActivityIndicatorView *)normalActivityIndicatorView {
     if (!_normalActivityIndicatorView) {
         _normalActivityIndicatorView = [[TYMActivityIndicatorView alloc] initWithActivityIndicatorStyle:TYMActivityIndicatorViewStyleNormal];
+        _normalActivityIndicatorView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _normalActivityIndicatorView;
 }
@@ -70,6 +73,7 @@
 - (TYMActivityIndicatorView *)largeActivityIndicatorView {
     if (!_largeActivityIndicatorView) {
         _largeActivityIndicatorView = [[TYMActivityIndicatorView alloc] initWithActivityIndicatorStyle:TYMActivityIndicatorViewStyleLarge];
+        _largeActivityIndicatorView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _largeActivityIndicatorView;
 }
@@ -78,6 +82,7 @@
 - (UIButton *)button {
     if (!_button) {
         _button = [[UIButton alloc] init];
+        _button.translatesAutoresizingMaskIntoConstraints = NO;
         [_button setTitle:@"Animate" forState:UIControlStateNormal];
         [_button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         [_button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -89,6 +94,7 @@
 - (UISwitch *)directionSwitch {
     if (!_directionSwitch) {
         _directionSwitch = [[UISwitch alloc] init];
+        _directionSwitch.translatesAutoresizingMaskIntoConstraints = NO;
         [_directionSwitch addTarget:self action:@selector(directionChanged:) forControlEvents:UIControlEventValueChanged];
     }
     return _directionSwitch;
@@ -98,6 +104,7 @@
 - (UISlider *)progressSlider {
     if (!_progressSlider) {
         _progressSlider = [[UISlider alloc] init];
+        _progressSlider.translatesAutoresizingMaskIntoConstraints = NO;
         [_progressSlider addTarget:self action:@selector(progressChanged:) forControlEvents:UIControlEventValueChanged];
     }
     return _progressSlider;
@@ -109,6 +116,7 @@
         _durationSlider = [[UISlider alloc] init];
         _durationSlider.minimumValue = 0.5f;
         _durationSlider.maximumValue = 5.0;
+        _durationSlider.translatesAutoresizingMaskIntoConstraints = NO;
         [_durationSlider addTarget:self action:@selector(durationChanged:) forControlEvents:UIControlEventValueChanged];
     }
     return _durationSlider;
@@ -118,6 +126,7 @@
 - (UILabel *)progressLabel {
     if (!_progressLabel) {
         _progressLabel = [[UILabel alloc] init];
+        _progressLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _progressLabel.font = [UIFont systemFontOfSize:12.0];
         _progressLabel.text = @"Progress: 0.00";
     }
@@ -128,6 +137,7 @@
 - (UILabel *)durationLabel {
     if (!_durationLabel) {
         _durationLabel = [[UILabel alloc] init];
+        _durationLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _durationLabel.font = [UIFont systemFontOfSize:12.0];
         _durationLabel.text = @"Duration: 1.00";
     }
@@ -138,6 +148,7 @@
 - (UILabel *)directionLabel {
     if (!_directionLabel) {
         _directionLabel = [[UILabel alloc] init];
+        _directionLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _directionLabel.font = [UIFont systemFontOfSize:12.0];
         _directionLabel.text = @"Clockwise";
     }
@@ -163,19 +174,7 @@
     [self.view addSubview:self.directionSwitch];
     [self.view addSubview:self.button];
     
-    
-    CGSize size = self.view.bounds.size;
-    self.systemActivityIndicatorView.frame = CGRectMake(40.0, 40.0, 20.0, 20.0);
-    self.smallActivityIndicatorView.frame = CGRectMake(120.0, 40.0, 36.0, 36.0);
-    self.normalActivityIndicatorView.frame = CGRectMake(size.width - 40.0 - 80.0, 40.0, 80.0, 80.0);
-    self.largeActivityIndicatorView.frame = CGRectMake(roundf((size.width - 150.0) / 2), 160.0, 150.0, 150.0);
-    self.durationLabel.frame = CGRectMake(20.0, 330.0, 100.0, 20.0);
-    self.durationSlider.frame = CGRectMake(120.0, 330.0, size.width - 100.0 - 20.0 * 3, 20.0);
-    self.progressLabel.frame = CGRectMake(20.0, 370.0, 100.0, 20.0);
-    self.progressSlider.frame = CGRectMake(120.0, 370.0, size.width - 100.0 - 20.0 * 3, 20.0);
-    self.directionLabel.frame = CGRectMake(20.0, 410.0, 100.0, 30.0);
-    self.directionSwitch.frame = CGRectMake(120.0, 410.0, 100.0, 30.0);
-    self.button.frame = CGRectMake(200.0, 410.0, 100.0, 30.0);
+    [self setupViewConstraints];
     
     self.directionSwitch.on = YES;
     self.durationSlider.value = 1.0;
@@ -183,6 +182,33 @@
 
 
 #pragma mark - Private Methods
+
+- (void)setupViewConstraints {
+    NSDictionary *views = @{@"systemActivityIndicatorView": self.systemActivityIndicatorView,
+                            @"smallActivityIndicatorView": self.smallActivityIndicatorView,
+                            @"normalActivityIndicatorView": self.normalActivityIndicatorView,
+                            @"largeActivityIndicatorView": self.largeActivityIndicatorView,
+                            @"durationLabel": self.durationLabel,
+                            @"durationSlider": self.durationSlider,
+                            @"progressLabel": self.progressLabel,
+                            @"progressSlider": self.progressSlider,
+                            @"directionLabel": self.directionLabel,
+                            @"directionSwitch": self.directionSwitch,
+                            @"button": self.button
+                            };
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-40-[systemActivityIndicatorView]-(>=0)-[smallActivityIndicatorView]-(>=0)-[normalActivityIndicatorView]-20-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-40-[normalActivityIndicatorView]-20-[largeActivityIndicatorView]-20-[durationSlider]-20-[progressSlider]-20-[directionSwitch]-30-[button]" options:kNilOptions metrics:nil views:views]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.smallActivityIndicatorView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.largeActivityIndicatorView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[durationLabel]-[durationSlider]-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[progressLabel]-[progressSlider]-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[directionLabel]-[directionSwitch]" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.button attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.directionSwitch attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.progressSlider attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
+}
+
 
 - (void)customAppearance {
     TYMActivityIndicatorView *appearance = [TYMActivityIndicatorView appearance];
