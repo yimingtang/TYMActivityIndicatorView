@@ -7,7 +7,7 @@
 
 A simple activity indicator view. It uses Core Animation to handle all the animation related stuff.
 
-TYMActivityIndicatorView is tested on iOS 5.0+ and requires ARC.
+TYMActivityIndicatorView is tested on iOS 6.0+ and requires ARC.
 
 ![Screenshot](https://github.com/yimingtang/TYMActivityIndicatorView/blob/master/Screenshot.gif?raw=true)
 
