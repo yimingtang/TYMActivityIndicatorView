@@ -101,7 +101,6 @@
     _activityIndicatorViewStyle = activityIndicatorViewStyle;
     self.backgroundImageView.image = [self backgroundImageForActivityIndicatorStyle:activityIndicatorViewStyle];
     self.spinnerImageView.image = [self spinnerImageForActivityIndicatorStyle:activityIndicatorViewStyle];
-    [self sizeToFit];
 }
 
 
@@ -152,6 +151,11 @@
         self.activityIndicatorViewStyle = style;
     }
     return self;
+}
+
+
+- (CGSize)intrinsicContentSize {
+    return [self sizeThatFits:CGSizeZero];
 }
 
 
