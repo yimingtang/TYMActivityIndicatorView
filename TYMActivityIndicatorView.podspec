@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'TYMActivityIndicatorView'
-  s.version      = '0.3.2'
+  s.version      = '0.3.3'
   s.summary      = 'A simple activity indicator view which you can customize with images.'
   s.homepage     = 'https://github.com/yimingtang/TYMActivityIndicatorView'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
