@@ -84,7 +84,6 @@
 
 - (void)setSpinnerImage:(UIImage *)spinnerImage forActivityIndicatorStyle:(TYMActivityIndicatorViewStyle)style {
     [self.spinnerImageStorage setObject:spinnerImage forKey:@(style)];
-    
 }
 
 

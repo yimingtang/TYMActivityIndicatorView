@@ -31,14 +31,14 @@ typedef NS_ENUM(NSInteger, TYMActivityIndicatorViewStyle) {
 
 /**
  It determines whether the receiver will be hidden when the animation was stopped.
- Default is `YES`. It calls `-setHidden` when animating gets set to NO.
+ Default is `NO`. It calls `-setHidden` when animating gets set to NO.
  */
-@property (nonatomic) BOOL hidesWhenStopped UI_APPEARANCE_SELECTOR;
+@property (nonatomic) NSInteger hidesWhenStopped UI_APPEARANCE_SELECTOR;
 
 /**
  Default value is `YES`.
  */
-@property (nonatomic) BOOL clockwise UI_APPEARANCE_SELECTOR;
+@property (nonatomic) NSInteger clockwise UI_APPEARANCE_SELECTOR;
 
 /**
  The duration time it takes the indicator to finish a 360-degree rotation.
