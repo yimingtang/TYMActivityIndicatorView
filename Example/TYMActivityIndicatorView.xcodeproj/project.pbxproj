@@ -136,6 +136,7 @@
 				20FC15CE18A7B9C900DD54B7 /* Frameworks */,
 				20FC15CF18A7B9C900DD54B7 /* Resources */,
 				1A81FCBBA878D46D2428AAF9 /* Copy Pods Resources */,
+				66E9036C557931D7942441A1 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,7 +154,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TYM;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Yiming Tang";
 			};
 			buildConfigurationList = 20FC15CC18A7B9C900DD54B7 /* Build configuration list for PBXProject "TYMActivityIndicatorView" */;
@@ -199,6 +200,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TYMActivityIndicatorView/Pods-TYMActivityIndicatorView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66E9036C557931D7942441A1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TYMActivityIndicatorView/Pods-TYMActivityIndicatorView-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BAA9412DD5CA6F3C7533226A /* Check Pods Manifest.lock */ = {
@@ -261,6 +277,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -324,6 +341,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Other Sources/TYMActivityIndicatorView-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/TYMActivityIndicatorView-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.xianqu.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = TYMActivityIndicatorView;
 				WARNING_CFLAGS = "-Weverything";
 				WRAPPER_EXTENSION = app;
@@ -339,6 +357,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Other Sources/TYMActivityIndicatorView-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/TYMActivityIndicatorView-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.xianqu.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = TYMActivityIndicatorView;
 				WARNING_CFLAGS = "-Weverything";
 				WRAPPER_EXTENSION = app;
