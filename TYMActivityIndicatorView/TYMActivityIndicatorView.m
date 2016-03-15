@@ -192,7 +192,7 @@
 
 - (void)setProgress:(CGFloat)progress {
     if (progress < 0.0 || progress > 1.0) return;
-    if (fabsf(_progress - progress) < self.minProgressUnit) return;
+    if (fabs(_progress - progress) < self.minProgressUnit) return;
     
     CGFloat fromValue = M_PI * 2 * _progress;
     CGFloat toValue = M_PI * 2 * progress;
